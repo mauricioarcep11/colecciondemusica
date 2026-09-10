@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f4efe7">
+    <title>Mi Colección de Discos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="page-shell">
+        <header class="site-header">
+            <div class="top-bar">
+                <div class="logo-area" style="display: flex; align-items: center; gap: 10px;">
+                    <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <a class="logo-text" href="#inicio" aria-label="Inicio de la colección">
+                        <span class="nombre-negro">MAURICIO</span> <span class="nombre-acento">ARCE</span>
+                    </a>
+                </div>
+                <nav class="view-tabs" aria-label="Secciones de la colección">
+                    <button class="view-tab active" type="button" data-view="albums" aria-selected="true">Discos</button>
+                    <button class="view-tab" type="button" data-view="concerts" aria-selected="false">Conciertos</button>
+                </nav>
+                <button class="random-button albums-only-control" id="randomBtn" type="button" aria-label="Encontrar una canción al azar">
+                    <span aria-hidden="true">↝</span>
+                    <span>Canción al azar</span>
+                </button>
+            </div>
+
+            <div class="hero-section">
+                <div class="sub-linea">
+                    <span class="guion"></span>
+                    <span class="texto-pequeno">actualizado: 20/09/2026</span>
+                </div>
+                <h1 class="titulo-principal" id="heroTitle">
+                    <span class="palabra-negra">Colección</span>
+                    <span class="palabra-negra">de</span>
+                    <span class="palabra-acento">discos.</span>
+                </h1>
+                <p class="descripcion">Una selección de álbumes para perderse, volver y encontrar algo nuevo en cada vuelta.</p>
+                <div class="buscador-container">
+                    <input type="text" id="buscador" placeholder="Busca una canción, álbum, artista o lugar..." autocomplete="off">
+                </div>
+            </div>
+        </header>
+
+        <main id="inicio">
+            <section id="albumsView" class="view-panel">
+                <section class="collection-heading">
+                    <div>
+                        <p class="section-label">La colección <span id="resultCount">14</span></p>
+                        <h2>Discos</h2>
+                    </div>
+                    <p class="sort-note">Ordenados por <strong>fecha de concierto</strong> <span aria-hidden="true">↓</span></p>
+                </section>
+
+                <div id="estante" class="grid-container" aria-live="polite">
+                    <!-- Los discos aparecerán aquí -->
+                </div>
+                <p id="emptyState" class="empty-state" hidden>No encontramos ese disco. Prueba con otro nombre o artista.</p>
+            </section>
+
+            <section id="concertsView" class="view-panel" hidden>
+                <section class="collection-heading">
+                    <div>
+                        <p class="section-label">Mis conciertos <span id="concertCount">00</span></p>
+                        <h2>En vivo</h2>
+                    </div>
+                    <p class="sort-note">Ordenados por <strong>fecha de concierto</strong> <span aria-hidden="true">↓</span></p>
+                </section>
+
+                <div id="concertShelf" class="grid-container" aria-live="polite"></div>
+                <p id="concertEmptyState" class="empty-state">Aún no hay conciertos añadidos.</p>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <span>Colección de Mauricio Arce.</span>
+            <span class="footer-rule"></span>
+            <span id="footerCount">14 discos en el estante</span>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
